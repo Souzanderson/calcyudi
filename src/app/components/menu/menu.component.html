@@ -1,0 +1,14 @@
+<div id="menu">
+    <div class="header">
+        
+    </div>
+    <div class="items" *ngFor="let item of items" (click)="go(item.route)">
+        <div [ngClass]="{'selected': item.selected}" [matTooltip]="item.label" matTooltipPosition="after">
+            <mat-icon aria-hidden="false">{{item.icon}}</mat-icon>
+            <div class="label">{{item.label}}</div>
+        </div>
+    </div>
+    <div class="close" (click)="go('')">
+        [x] Sair
+    </div>
+</div>

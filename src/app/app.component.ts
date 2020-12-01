@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import {UteisService} from 'src/app/services/uteis.service';
+import { ConnectionService } from './services/connection.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'front';
+
+  constructor(
+    public util: UteisService,
+    public conn: ConnectionService,
+    public route: Router
+  ){
+    setInterval(() => {
+      if(!this.conn.user.hascode){
+        this.route.navigate(['/'])
+      }
+    }, 100);
+  }
 }

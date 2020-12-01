@@ -1,0 +1,26 @@
+.table {
+    padding: 12px;
+    text-align: center;
+}
+.corp {
+    --cs: 90px 1fr 1fr;
+}
+
+.hdsection {
+    background: var(--color-tertiary);
+    color: var(--color-tertiary-contrast);
+    padding: 8px;
+    text-align: center;
+}
+.bdsection {
+    background: #fffade;
+    color: var(--color-tertiary);
+    padding: 8px;
+    text-align: center;
+}
+.iteminternal {
+    --cs: 125px 1fr 1fr;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 8px;
+}

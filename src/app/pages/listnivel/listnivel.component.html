@@ -1,0 +1,51 @@
+<menu></menu>
+<div id="container">
+    <div class="form">
+
+        <div class="header" table=true style="--cs: 1fr 100px">
+            <span>Listagem de Níveis </span>
+            <div class="iconstop">
+                <mat-icon aria-hidden="false" *ngIf="showgraph" matTooltip="Gerar Tabela" matTooltipPosition="below"
+                    (click)="showgraph=false">table_chart</mat-icon>
+                <mat-icon aria-hidden="false" *ngIf="!showgraph" (click)="showgraph=true" matTooltip="Gerar Gráficos"
+                    matTooltipPosition="below">insert_chart</mat-icon>
+                <mat-icon aria-hidden="false" (click)="getTable()" matTooltip="Recarregar Tabela"
+                    matTooltipPosition="below">sync</mat-icon>
+            </div>
+        </div>
+        <div class="struct" id="struct">
+            <linechart [labels]='labelchart' [data]='datachart' titlex="Data/hora" titley="Nível (cm)" *ngIf="showgraph"
+                [steped]='true'></linechart>
+            <div class="table" *ngIf="!showgraph">
+                <div class='toptable' table=true style="--cs: 90px 1fr 1fr 1fr">
+                    <div class="label">
+                        ID
+                    </div>
+                    <div class="label">
+                        Sensor
+                    </div>
+                    <div class="label">
+                        Nível
+                    </div>
+                    <div class="label">
+                        Data/Hora
+                    </div>
+                </div>
+                <div class='bodytable' table=true style="--cs: 90px 1fr 1fr 1fr" *ngFor="let item of list">
+                    <div class="label">
+                        {{item.id}}
+                    </div>
+                    <div class="label">
+                        {{item.idlevel}}
+                    </div>
+                    <div class="label">
+                        {{item.qtlevel}}
+                    </div>
+                    <div class="label">
+                        {{item.dtupdate | date: 'dd/MM/yyyy HH:mm:ss'}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

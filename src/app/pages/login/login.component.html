@@ -1,0 +1,25 @@
+<div id="login">
+    <div class="form">
+        <div class="logo"></div>
+        <form>
+            <div class="struct">
+                <span>Login:</span>
+                <br />
+                <div class="input no-margin">
+                    <input [(ngModel)]="user" name="user"/>
+                </div>
+                <br />
+                <span>Senha:</span>
+                <br />
+                <div class="input no-margin">
+                    <input type="password" [(ngModel)]="senha" name="senha" (keyup.enter)="login()"/>
+                </div>
+                <br />
+                <br />
+                <div color="sucess" class="button no-margin" (click)="login()">
+                    <span>Entrar</span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

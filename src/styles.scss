@@ -1,1 +1,456 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    overflow: hidden;
+    // background: url("assets/images/background.png");
+    // background-attachment: fixed;
+    // background-size: cover;
+    // background-position: center;
+}
+
+mat-dialog-container {
+    padding: 0 !important;
+    overflow: hidden !important;
+    .struct {
+        padding: 8px;
+        height: 428px;
+        overflow-y: auto;
+    }
+    .header {
+        text-align: center;
+        font-weight: bold;
+        color: var(--color-primary-contrast);
+        padding: 12px;
+        background: var(--color-primary);
+        .iconstop {
+            display: inline;
+            mat-icon {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+        }
+        mat-icon {
+            cursor: pointer;
+        }
+    }
+}
+
+:root {
+    --color-primary: rgb(46, 49, 146);
+    --color-primary-contrast: rgb(252, 255, 252);
+    --color-secondary: rgb(64, 185, 60);
+    --color-secondary-contrast: rgb(252, 255, 252);
+    --color-tertiary: rgb(1, 102, 102);
+    --color-tertiary-contrast: rgb(252, 255, 252);
+    --color-green: #009b48;
+    --color-green-contrast: rgb(252, 255, 252);
+    --color-gray: rgb(200, 212, 210);
+    --color-gray-contrast: rgb(255, 250, 222);
+    --color-dark: rgb(58, 58, 58);
+    --color-dark-contrast: rgb(243, 239, 239);
+    --color-green-contrast: rgb(252, 255, 252);
+    --color-red: rgb(175, 33, 33);
+    --color-red-contrast: rgb(252, 255, 252);
+    --margin: 70px;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0 !important;
+}
+
+#subm {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+#container {
+    margin: 12px;
+    margin-left: calc(12px + var(--margin));
+    height: 96vh;
+    width: calc(100vw - var(--margin) - 20px);
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    .header {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        padding: 12px;
+        background-color: var(--color-primary);
+        font-size: 16px;
+        text-align: center;
+        color: white;
+        .iconstop {
+            display: inline;
+            text-align: right;
+            mat-icon {
+                padding-left: 8px !important;
+                padding-right: 8px !important;
+            }
+        }
+        mat-icon {
+            cursor: pointer;
+        }
+        .icon {
+            cursor: pointer;
+            img {
+                height: 20px;
+            }
+        }
+        .icon:active {
+            transform: scale(0.98);
+        }
+    }
+    .form {
+        font-size: 14px;
+        background: rgba(255, 255, 255, 0.851);
+        margin: 12px;
+        border-radius: 8px;
+        padding-bottom: 48px;
+        height: 89%;
+        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        .space {
+            padding: 12px;
+        }
+        .section {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 24px;
+            border-bottom: 1px solid var(--color-gray);
+            padding: 4px;
+        }
+        .struct {
+            overflow: auto;
+            height: 94%;
+            padding: 20px;
+        }
+    }
+}
+
+#picker {
+    .struct {
+        padding: 20px;
+    }
+}
+
+.table {
+    .toptable {
+        position: relative;
+        border-top-left-radius: 8px;
+        overflow: hidden;
+        border-top-right-radius: 8px;
+        .label {
+            padding: 9px;
+            background: var(--color-tertiary);
+            color: var(--color-tertiary-contrast);
+            border: 1px solid var(--color-tertiary-contrast);
+        }
+    }
+    .bodytable {
+        background-color: var(--color-gray-contrast);
+        .label {
+            padding: 12px;
+            border: 1px solid var(--color-primary-contrast);
+        }
+        .inputtab:focus-within {
+            box-shadow: 0 0 7px 1px var(--color-tertiary);
+        }
+        .inputtab {
+            padding: 8px;
+            border: 1px solid var(--color-primary);
+            margin: 1px;
+            background-color: var(--color-primary-contrast);
+            input {
+                text-align: center;
+                outline: none;
+                background-color: unset;
+                border: unset;
+                width: 100%;
+                color: var(--color-primary);
+                font-size: 12px;
+            }
+        }
+    }
+    .bodytable:hover {
+        cursor: pointer;
+        .label {
+            background-color: var(--color-gray) !important;
+        }
+    }
+}
+
+.board {
+    border-radius: 12px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 8px 8px 24px 8px;
+    .top {
+        text-align: center;
+        padding: 12px 8px 12px 8px;
+        background: var(--color-primary);
+        color: var(--color-primary-contrast);
+        .icon {
+            cursor: pointer;
+            margin: -4px;
+            img {
+                height: 20px;
+            }
+        }
+        .icon:active {
+            transform: scale(0.98);
+        }
+    }
+    .story {
+        padding: 12px;
+        min-height: 40px;
+        background-color: #ffffff;
+        .message {
+            text-align: center;
+            padding: 12px;
+        }
+    }
+}
+
+.checkbox {
+    padding: 8px;
+    margin: 12px 0 12px 0;
+    text-align: center;
+}
+
+span.errorlabel {
+    color: var(--color-red);
+    font-size: 11px;
+    font-weight: bold;
+}
+
+//SNACKBAR
+.dangersnack {
+    background-color: var(--color-red);
+    color: var(--color-red-contrast);
+    border-radius: 8px !important;
+}
+
+.button {
+    --cs: 24px 1fr;
+    background-color: var(--color-primary-contrast);
+    color: var(--color-primary);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 6px;
+    border: 2px solid var(--color-primary-contrast);
+    text-align: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: auto 12px auto 12px;
+    min-width: 43px;
+    cursor: pointer;
+    span {
+        padding-top: 3px;
+    }
+}
+
+.button:active {
+    transform: scale(0.98);
+}
+
+.btgreen {
+    background-color: var(--color-green);
+    color: var(--color-green-contrast);
+    border: 2px solid var(--color-green);
+}
+
+.btgreen:active {
+    background-color: var(--color-green-contrast);
+    color: var(--color-green);
+    border: 2px solid var(--color-primary-contrast);
+}
+
+.btred {
+    background-color: var(--color-red);
+    color: var(--color-red-contrast);
+    border: 2px solid var(--color-red);
+}
+
+.btred:active {
+    background-color: var(--color-red-contrast);
+    color: var(--color-red);
+    border: 2px solid var(--color-red);
+}
+
+.btdark {
+    background-color: var(--color-dark);
+    color: var(--color-dark-contrast);
+    border: 2px solid var(--color-dark);
+}
+
+.btdark:active {
+    background-color: var(--color-dark-contrast);
+    color: var(--color-dark);
+    border: 2px solid var(--color-dark);
+}
+
+.btblue {
+    background-color: var(--color-tertiary);
+    color: var(--color-tertiary-contrast);
+    border: 2px solid var(--color-tertiary);
+}
+
+.btblue:active {
+    background-color: var(--color-tertiary-contrast);
+    color: var(--color-tertiary);
+    border: 2px solid var(--color-tertiary);
+}
+
+.inputlogin {
+    background-color: rgba(255, 255, 255, 0.712);
+    padding: 4px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    margin: 16px;
+    .label {
+        color: var(--color-primary);
+        border-right: 1px solid;
+        text-align: center;
+        padding-top: 2px;
+    }
+    input {
+        outline: none;
+        background-color: unset;
+        border: unset;
+        width: 100%;
+        width: -moz-available; /* WebKit-based browsers will ignore this. */
+        width: -webkit-fill-available; /* Mozilla-based browsers will ignore this. */
+        width: fill-available;
+        padding-right: 8px;
+        padding-left: 8px;
+        margin-right: 8px;
+        margin-left: 8px;
+        color: var(--color-primary);
+    }
+}
+
+.input:focus-within {
+    box-shadow: 0 0 7px 1px var(--color-tertiary);
+}
+
+.input {
+    background-color: var(--color-primary-contrast);
+    border-radius: 4px;
+    border: 1px solid var(--color-primary);
+    // box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 8px 16px 8px 0;
+    padding-left: 12px;
+    padding-right: 12px;
+
+    input {
+        outline: none;
+        background-color: unset;
+        border: unset;
+        width: 100%;
+        color: var(--color-primary);
+        padding: 8px;
+    }
+}
+
+.c {
+    text-align: center;
+}
+
+.l {
+    text-align: left;
+}
+
+.r {
+    text-align: right;
+}
+
+.select:focus-within {
+    box-shadow: 0 0 7px 1px var(--color-tertiary);
+}
+
+.select {
+    background-color: var(--color-primary-contrast);
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid var(--color-primary);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    margin: 8px 16px 8px 0;
+    select {
+        outline: none;
+        background-color: unset;
+        border: unset;
+        width: 100%;
+        padding-right: 8px;
+        padding-left: 8px;
+        margin-right: 8px;
+        margin-left: 8px;
+        color: var(--color-primary);
+    }
+    select:focus {
+        outline: 0;
+    }
+}
+
+div[table="true"] {
+    display: grid;
+    grid-template-columns: var(--cs);
+    grid-template-rows: var(--rs);
+    .icontab {
+        cursor: pointer;
+        text-align: center;
+        img {
+            margin: 12px;
+            width: 24px;
+        }
+    }
+}
+
+div[icon="true"] {
+    background-image: var(--u);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: -8px;
+}
+
+.mat-tooltip {
+    /* your own custom styles here */
+    /* e.g. */
+    color: var(--color-primary-contrast);
+    background-color: var(--color-primary);
+    font-size: 12px;
+    border-radius: 8px !important;
+    box-shadow: 2px 2px 2px 1px rgba(10, 48, 0, 0.548) !important;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #bcd4da;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
