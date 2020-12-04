@@ -29,11 +29,15 @@ export class LoginComponent implements OnInit {
       let res = await this.conn.login(this.user, this.senha).toPromise();
       if (res ? res['hascode'] : false) {
         this.conn.user.hascode = res['hascode']
+        // this.route.navigate(['/central'])
         this.route.navigate(['/temperatures'])
+      }
+      else {
+        this.util.alertDanger('Erro ao fazer login!')
       }
     }
     catch (e) {
-
+      this.util.alertDanger('Erro ao fazer login!')
     }
     this.util.pauseSpin()
   }

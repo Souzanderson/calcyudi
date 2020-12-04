@@ -14,9 +14,30 @@
             </div>
         </div>
         <div class="struct" id="struct">
-            <linechart [labels]='labelchart' [data]='datachart' titlex="Data/hora" titley="Nível (cm)" *ngIf="showgraph"
+            <linechart [labels]='labelchart' [data]='datachart' titlex="Data/hora" titley="Nível" *ngIf="showgraph"
                 [steped]='true'></linechart>
             <div class="table" *ngIf="!showgraph">
+                <div table=true style="--cs: 1fr 200px 200px">
+                    <div table=true style="--cs:1fr; --rs:30px 1fr">
+                        <span>Sensor:</span>
+                        <div class="input">
+                            <input [(ngModel)]="sensor" (keyup)="instant()" />
+                        </div>
+                    </div>
+                    <div table=true style="--cs:1fr; --rs:30px 1fr">
+                        <span>Data inicial:</span>
+                        <div class="input">
+                            <input type="date" [(ngModel)]="dtini" (blur)="instant()" />
+                        </div>
+                    </div>
+                    <div table=true style="--cs:1fr; --rs:30px 1fr">
+                        <span>Data Final:</span>
+                        <div class="input">
+                            <input type="date" [(ngModel)]="dtfim" (blur)="instant()" />
+                        </div>
+                    </div>
+                </div>
+                <br />
                 <div class='toptable' table=true style="--cs: 90px 1fr 1fr 1fr">
                     <div class="label">
                         ID

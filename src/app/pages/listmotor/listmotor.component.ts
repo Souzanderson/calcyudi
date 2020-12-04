@@ -9,32 +9,49 @@ import { UteisService } from 'src/app/services/uteis.service';
 })
 export class ListmotorComponent implements OnInit {
   public list: any = []
-  public datachart:any;
-  public labelchart:any;
+  public listaux: any = []
+  public datachart: any;
+  public labelchart: any;
   public showgraph = false;
-
+  //FILTROS
+  public sensor: string;
+  public dtini: string;
+  public dtfim: string;
   constructor(
     private conn: ConnectionService,
     private util: UteisService
   ) {
   }
 
-  ngOnInit(): void {
-    this.getTable()
+  async ngOnInit() {
+    await this.getTable()
+    this.listaux = this.list
+  }
+
+  public instant() {
+    this.list = this.listaux.filter((item: any) => {
+      return this.util.compareDate(this.dtini, this.dtfim, item['dtupdate']) && this.util.compareStr(item['idmotor'], this.sensor)
+    })
+    let v = this.util.formatChart(this.list, 'idmotor', 'velocity')
+    this.datachart = v[0]
+    this.labelchart = v[1]
   }
 
   async getTable() {
     this.util.initSpin('Baixando dados...')
     try {
       this.list = await this.conn.get('motor').toPromise();
-      console.log(this.list);[this.datachart, this.labelchart] = this.util.formatChart(this.list.map(item=> {
-        if(item.direction == 0){
-          item.velocity = Number(item.velocity)*-1 
-        }else{
+      this.list = this.list.map(item => {
+        if (item.direction == 0) {
+          item.velocity = Number(item.velocity) * -1
+        } else {
           item.velocity = Number(item.velocity)
         }
         return item
-      }),'idmotor','velocity')
+      })
+      let v = this.util.formatChart(this.list, 'idmotor', 'velocity')
+      this.datachart = v[0]
+      this.labelchart = v[1]
     } catch (error) {
 
     }

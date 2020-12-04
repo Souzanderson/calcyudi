@@ -44,7 +44,7 @@ export class LinechartComponent implements OnInit {
       valueAxis.title.text = this.titley;
 
     for (let l of this.labels) {
-      this.generateSerie(chart, axisX, 'x', l)
+      this.generateSerie(chart, 'x', l)
     }
     // Legend
     chart.legend = new am4charts.Legend();
@@ -52,9 +52,15 @@ export class LinechartComponent implements OnInit {
     chart.legend.position = "top";
     chart.legend.marginBottom = 20;
     chart.legend.valueLabels.template.fontSize = 12;
+    chart.events.on("ready", () => {
+      axisX.zoomToCategories(
+        this.data[this.data.length - 50]['x'],
+        this.data[this.data.length - 1]['x']
+      );
+    });
   }
 
-  generateSerie(chart, dateAxis, x, y) {
+  generateSerie(chart, x, y) {
     let series;
     if (this.steped) {
       series = chart.series.push(new am4charts.StepLineSeries());
@@ -82,6 +88,8 @@ export class LinechartComponent implements OnInit {
       max: 1,
       property: "radius"
     });
+
+
 
     bullet.tooltipText = "{name} => {valueY.value}";
   }

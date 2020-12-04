@@ -19,7 +19,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CockpitComponent } from './pages/cockpit/cockpit.component';
 import {LinechartComponent} from './components/linechart/linechart.component'
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import {LinechartComponent} from './components/linechart/linechart.component'
     HttpClientModule,
     MatIconModule,
     MatTooltipModule,
+    MatSnackBarModule,
     FormsModule,
     BrowserAnimationsModule
   ],

@@ -10,10 +10,10 @@ body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
     overflow: hidden;
-    // background: url("assets/images/background.png");
-    // background-attachment: fixed;
-    // background-size: cover;
-    // background-position: center;
+    background: url("assets/images/back.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
 }
 
 mat-dialog-container {
@@ -91,6 +91,7 @@ mat-dialog-container {
         font-size: 16px;
         text-align: center;
         color: white;
+        box-shadow: 1px 1px 3px 1px rgb(0 10 68 / 55%);
         .iconstop {
             display: inline;
             text-align: right;
@@ -128,7 +129,7 @@ mat-dialog-container {
             text-align: center;
             font-weight: bold;
             margin-bottom: 24px;
-            border-bottom: 1px solid var(--color-gray);
+            border-bottom: 1px solid rgb(0 23 128 / 32%);
             padding: 4px;
         }
         .struct {

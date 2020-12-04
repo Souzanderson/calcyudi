@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {User} from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 const _URL = "https://sensorsyudi.herokuapp.com/"
 
@@ -25,11 +26,11 @@ export class ConnectionService {
     return this.http.post(_URL+"login", data)
   }
 
-  public get(table){
+  public get(table): Observable<any>{
     return this.http.get(_URL + table+`?hascode=${this.user.hascode}`)
   }
 
-  public post(table,value){
+  public post(table,value): Observable<any>{
     return this.http.post(_URL + table+`?hascode=${this.user.hascode}`, value)
   }
 }

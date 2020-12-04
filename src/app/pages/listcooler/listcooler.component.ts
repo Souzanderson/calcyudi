@@ -9,18 +9,32 @@ import { UteisService } from 'src/app/services/uteis.service';
 })
 export class ListcoolerComponent implements OnInit {
   public list: any = []
+  public listaux: any = []
   public datachart: any;
   public labelchart: any;
   public showgraph = false;
-
+  //FILTROS
+  public sensor: string;
+  public dtini: string;
+  public dtfim: string;
   constructor(
     private conn: ConnectionService,
     private util: UteisService
   ) {
   }
 
-  ngOnInit(): void {
-    this.getTable()
+  async ngOnInit() {
+    await this.getTable()
+    this.listaux = this.list
+  }
+
+  public instant() {
+    this.list = this.listaux.filter((item: any) => {
+      return this.util.compareDate(this.dtini, this.dtfim, item['dtupdate']) && this.util.compareStr(item['idcooler'], this.sensor)
+    })
+    let v = this.util.formatChart(this.list, 'idcooler', 'isligado')
+    this.datachart = v[0]
+    this.labelchart = v[1]
   }
 
   async getTable() {
@@ -29,7 +43,9 @@ export class ListcoolerComponent implements OnInit {
       this.showgraph = false;
       this.list = await this.conn.get('cooler').toPromise();
       console.log(this.list);
-      [this.datachart, this.labelchart] = this.util.formatChart(this.list, 'idcooler', 'isligado')
+      let v = this.util.formatChart(this.list, 'idcooler', 'isligado')
+      this.datachart = v[0]
+      this.labelchart = v[1]
     }
     catch (e) {
 
